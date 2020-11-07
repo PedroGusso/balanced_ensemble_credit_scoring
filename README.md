@@ -2,7 +2,7 @@
 Este trabalho consiste em utilizar técnicas de balanceamento de dados baseados emsenble para classificar bases de crédito com diferentes níveis de desbalanceamento entre classes.
 
 ## Instalação
-### Faça o download das bases [aqui](https://drive.google.com/file/d/12B45siibgbgOiqhFPhX2i73hzpc9TAi-/view?usp=sharing){:target="_blank"}
+### Faça o download das bases [aqui](https://drive.google.com/file/d/12B45siibgbgOiqhFPhX2i73hzpc9TAi-/view?usp=sharing) {:target="_blank"}
 Baixe esse arquivo compactado e descompacte dentro do arquivo deste projeto.
 
 ## Setup do ambiente
