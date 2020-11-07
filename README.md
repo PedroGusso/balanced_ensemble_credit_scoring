@@ -18,7 +18,7 @@ Caso você queira saber a distribuição das classes de cada dataset basta execu
 * Python3: `python3 datasets-stats.py` (recomendado)
 * Python2: `python datasets-stats.py`
 
-Obs: Você também pode ver os arquivos **desbalanceamento.xlsx** e **colunas-deletadas-lendingclub.xlsx** para saber mais sobre o desbalanceamento das bases e oscolha das colunas para serem as target além das colunas retiradas da maior base (lending club) respectivamente.
+Obs: Você também pode ver os arquivos **desbalanceamento.xlsx** e **colunas-deletadas-lendingclub.xlsx** na pasta **datasets-analysis**  para saber mais sobre o desbalanceamento das bases e oscolha das colunas para serem as target além das colunas retiradas da maior base (lending club) respectivamente.
 
 ### Tratamento dos dados
 Basta apenas executar o seguinte comando:
