@@ -28,8 +28,9 @@ Basta apenas executar o seguinte comando:
 Ao executar o comando acima, será gerado um arquivo chamado **data.csv** com o dataset já tratado em cada uma das pastas dos datasets. Como esses arquivos ja existem, eles apenas serão sobescritos.
 
 ### Geração dos resultados
-Para gerar os resultados é necessário executar o seguinte comando:
+Antes de gerar os resultados é preciso criar uma pasta vazia chamada **results**, é nessa pasta que os resultados serão criados.
+Para gerar as métricas é necessário executar o seguinte comando:
 * Python3: `python3 main.py` (recomendado)
 * Python2: `python main.py`
 
-O resultado da execução acima é a criação de diversos arquivos contendo métricas específicas relativas ao desempenho dos diferentes classificadores em cada uma das bases analisdas. Esses arquivos serão criado no diretório results (atualmente vazio).
+O resultado da execução acima é a criação de diversos arquivos contendo métricas específicas relativas ao desempenho dos diferentes classificadores em cada uma das bases analisadas. Esses arquivos serão criado no diretório criado por você.
