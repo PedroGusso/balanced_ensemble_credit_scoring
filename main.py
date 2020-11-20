@@ -143,6 +143,7 @@ def stats(X, y, dataset_label, dataset_name):
             y_pred_method = method.predict(X_test)
             y_proba_method = method.predict_proba(X_test)
 
+        # dataset_label contem o valor da classe positiva
         fpr_roc, tpr_roc, thresholds_roc = roc_curve(y_test, y_proba_method[:, 1], pos_label=dataset_label)
         plt.plot(fpr_roc, tpr_roc)
 
