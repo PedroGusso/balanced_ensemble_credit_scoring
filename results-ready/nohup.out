@@ -1,9 +1,1 @@
-  0%|          | 0/6 [00:00<?, ?it/s] 17%|█▋        | 1/6 [05:57<29:46, 357.38s/it] 33%|███▎      | 2/6 [12:05<24:02, 360.74s/it] 50%|█████     | 3/6 [31:58<30:30, 610.22s/it] 67%|██████▋   | 4/6 [8:27:39<4:59:39, 8989.65s/it]/home/projeto/.local/lib/python3.6/site-packages/sklearn/linear_model/_logistic.py:764: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  extra_warning_msg=_LOGISTIC_SOLVER_CONVERGENCE_MSG)
- 83%|████████▎ | 5/6 [16:02:50<4:01:25, 14485.92s/it]100%|██████████| 6/6 [16:25:07<00:00, 10541.21s/it]  100%|██████████| 6/6 [16:25:07<00:00, 9851.23s/it] 
+  0%|          | 0/5 [00:00<?, ?it/s] 20%|██        | 1/5 [06:05<24:23, 365.96s/it] 40%|████      | 2/5 [12:21<18:26, 368.97s/it] 60%|██████    | 3/5 [32:34<20:44, 622.08s/it] 80%|████████  | 4/5 [54:58<13:58, 838.50s/it]100%|██████████| 5/5 [8:55:43<00:00, 9240.69s/it]100%|██████████| 5/5 [8:55:43<00:00, 6428.78s/it]

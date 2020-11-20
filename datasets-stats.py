@@ -7,20 +7,6 @@ pd.set_option('display.max_colwidth', 90)
 pd.set_option('display.max_rows', 500)
 
 
-def lending_club():
-    # Desbalanceamento do dataset lending club
-    data = pd.read_csv("lending-club-loan-data/loan.csv")
-    # Para ver o número de valores nulos por coluna
-    print("Number of empty values per column")
-    print(data.isna().sum())
-    data1 = data['loan_status'].count()
-    data2 = data.groupby('loan_status').size()
-    data3 = data2.groupby(level=0).apply(lambda x: 100*x / data1)
-    data4 = pd.merge(data2.rename('count'), data3.rename('percentage'), how='left', on='loan_status')
-    print("\nClass distribution")
-    print(data4)
-
-
 def give_credit():
     # Desbalanceamento do dataset give me some credit
     data = pd.read_csv("give-me-some-credit-dataset/cs-training.csv")
@@ -85,9 +71,6 @@ def home_credit():
 
 
 if __name__ == '__main__':
-    print("Lending Club\n")
-    lending_club()
-    print("\n---------------")
     print("Give Me Some Credit\n")
     give_credit()
     print("\n---------------")

@@ -55,16 +55,6 @@ friedman_nemenyi_f1 = pd.DataFrame(columns=names)
 friedman_nemenyi_psi = pd.DataFrame(columns=names)
 
 
-def lending_club():
-    # Experimento com a base Lending Club
-    pd.options.display.width = 0
-    data = pd.read_csv("lending-club-loan-data/data.csv")
-    credit = data.to_numpy()
-    X, y = credit[:, 1:], credit[:, 0:1]
-    dataset_label = 1
-    return X, y, dataset_label
-
-
 def home_credit():
     # Experimento com a base home-credit-default-risk
     data = pd.read_csv("home-credit-default-risk/data.csv")
@@ -122,8 +112,7 @@ def stats(X, y, dataset_label, dataset_name):
 
     # Lista com as plotagens do detection rate
     dr_list_plot = []
-    # Flag para plot AUC ou curva PR
-    AUC = True
+
     # Lista de parametros para o grid search
     parameters = {
         'n_estimators': [50, 100, 200],
@@ -155,16 +144,8 @@ def stats(X, y, dataset_label, dataset_name):
             y_pred_method = method.predict(X_test)
             y_proba_method = method.predict_proba(X_test)
 
-        if dataset_name != "Lending Club":
-            # dataset_label contem o valor da classe positiva
-            fpr_roc, tpr_roc, thresholds_roc = roc_curve(y_test, y_proba_method[:, 1], pos_label=dataset_label)
-            plt.plot(fpr_roc, tpr_roc)
-        else:
-            # Curva PR para o dataset Lending club por ser extremamente desbalanceado
-            precision, recall, thresholds = precision_recall_curve(y_test, y_proba_method[:, 1],
-                                                                   pos_label=dataset_label)
-            plt.plot(precision, recall)
-            AUC = False
+        fpr_roc, tpr_roc, thresholds_roc = roc_curve(y_test, y_proba_method[:, 1], pos_label=dataset_label)
+        plt.plot(fpr_roc, tpr_roc)
 
         tn, fp, fn, tp = confusion_matrix(y_test, y_pred_method).ravel()
         fpr = fp/(fp+tn)
@@ -220,28 +201,18 @@ def stats(X, y, dataset_label, dataset_name):
             dr_list.append(cumulative_dr)
         dr_list_plot.append(dr_list)
 
-    if AUC is True:
-        # Plota o grafico ROC
-        plt.title('Receiver Operating Characteristic: ' + dataset_name)
-        plt.ylabel('True Positive Rate')
-        plt.xlabel('False Positive Rate')
-        plt.legend(names)
-        plt.savefig('results/ROC-' + dataset)
-        plt.clf()
-
-    else:
-        # Plota o grafico curva PR
-        plt.title('Precision Recall Curve: ' + dataset_name)
-        plt.ylabel('Precision')
-        plt.xlabel('Recall')
-        plt.legend(names)
-        plt.savefig('results/PR-' + dataset)
-        plt.clf()
+    # Plota o grafico ROC
+    plt.title('Receiver Operating Characteristic: ' + dataset_name)
+    plt.ylabel('True Positive Rate')
+    plt.xlabel('False Positive Rate')
+    plt.legend(names)
+    plt.savefig('results/ROC-' + dataset)
+    plt.clf()
 
     # Plota o grafico DR
-    plt.title('Comulative Detection Rate X Test Subgroups: ' + dataset_name)
+    plt.title('Cumulative Detection Rate X Test Subgroups: ' + dataset_name)
     plt.xlabel('Test Subgroups')
-    plt.ylabel('Comulative Detection Rate')
+    plt.ylabel('Cumulative Detection Rate')
     for p, name in zip(dr_list_plot, names):
         plt.plot([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], p, marker='o')
     plt.grid(True)
@@ -264,9 +235,8 @@ if __name__ == '__main__':
         "Australian": australian(),
         "German": german(),
         "Taiwanese": taiwanese(),
-        "home-credit-default-risk": home_credit(),
-        "Lending Club": lending_club(),
         "Give Me Some Credit": give_credit(),
+        "home-credit-default-risk": home_credit(),
     }
     # tqdm no looping para mostrar a barra de progresso do algoritmo
     for dataset in tqdm(datasets_dict):
@@ -278,4 +248,3 @@ if __name__ == '__main__':
     omnibus_posthoc(friedman_nemenyi_auc, "auc")
     omnibus_posthoc(friedman_nemenyi_f1, "f1")
     omnibus_posthoc(friedman_nemenyi_psi, "psi")
-
