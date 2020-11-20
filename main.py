@@ -14,7 +14,6 @@ from sklearn.metrics import confusion_matrix, make_scorer
 from sklearn.metrics import roc_curve
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import f1_score
-from sklearn.metrics import precision_recall_curve
 
 from imblearn.ensemble import BalancedRandomForestClassifier
 from imblearn.ensemble import EasyEnsembleClassifier
